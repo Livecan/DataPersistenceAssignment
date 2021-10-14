@@ -78,15 +78,15 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
-        if (m_Points > menuManager.highScore.points)
+        if (m_Points > menuManager.HighScore.points)
         {
-            menuManager.highScore = new MenuManager.Score(menuManager.PlayerName, m_Points);
+            menuManager.HighScore = new MenuManager.Score(menuManager.PlayerName, m_Points);
             DisplayHighScore();
         }
     }
 
     private void DisplayHighScore()
     {
-        BestScoreText.text = "Best score : " + menuManager.highScore.name + " : " + menuManager.highScore.points;
+        BestScoreText.text = menuManager.GetHighScoreText();
     }
 }
